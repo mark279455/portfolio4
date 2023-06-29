@@ -16,12 +16,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
 if os.path.exists('env.py'):
     import env
-    DEBUG = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -30,6 +26,8 @@ if os.path.exists('env.py'):
 # SECRET_KEY = "django-insecure-lf7+j8r&^y(e=hmkal$=4)j=+dobltlbu1yd_#k8(mc%aom%9d"
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = []
 
